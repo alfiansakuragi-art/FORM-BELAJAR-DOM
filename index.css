@@ -1,0 +1,329 @@
+ *,
+ *::before,
+ *::after {
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+ }
+
+ :root {
+     --bg: #0d0d0f;
+     --surface: #16161a;
+     --border: #2a2a32;
+     --accent: #f0e040;
+     --accent2: #40e0f0;
+     --text: #e8e8f0;
+     --muted: #6a6a7a;
+     --red: #f05060;
+     --green: #50e0a0;
+ }
+
+ body {
+     background: var(--bg);
+     color: var(--text);
+     font-family: 'Syne', sans-serif;
+     min-height: 100vh;
+     padding: 2rem 1rem 4rem;
+ }
+
+ /* ── HEADER ── */
+ header {
+     max-width: 860px;
+     margin: 0 auto 3rem;
+     border-bottom: 1px solid var(--border);
+     padding-bottom: 1.5rem;
+     display: flex;
+     align-items: baseline;
+     gap: 1rem;
+     flex-wrap: wrap;
+ }
+
+ header h1 {
+     font-size: clamp(1.8rem, 5vw, 3rem);
+     font-weight: 800;
+     letter-spacing: -1px;
+     color: var(--accent);
+ }
+
+ header span {
+     font-family: 'Space Mono', monospace;
+     font-size: .8rem;
+     color: var(--muted);
+     background: var(--surface);
+     border: 1px solid var(--border);
+     padding: .2rem .6rem;
+     border-radius: 4px;
+ }
+
+ /* ── GRID SECTION ── */
+ .grid {
+     max-width: 860px;
+     margin: 0 auto 2.5rem;
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+     gap: 1.25rem;
+ }
+
+ .card {
+     background: var(--surface);
+     border: 1px solid var(--border);
+     border-radius: 10px;
+     padding: 1.5rem;
+     position: relative;
+     overflow: hidden;
+ }
+
+ .card::before {
+     content: attr(data-num);
+     position: absolute;
+     top: .8rem;
+     right: 1rem;
+     font-family: 'Space Mono', monospace;
+     font-size: .7rem;
+     color: var(--muted);
+ }
+
+ .card h2 {
+     font-size: 1rem;
+     font-weight: 700;
+     color: var(--accent2);
+     margin-bottom: .75rem;
+     text-transform: uppercase;
+     letter-spacing: 1px;
+ }
+
+ /* ── FORM ELEMENTS ── */
+ label {
+     display: block;
+     font-size: .8rem;
+     color: var(--muted);
+     margin-bottom: .35rem;
+     font-family: 'Space Mono', monospace;
+ }
+
+ input[type="text"],
+ input[type="number"],
+ input[type="email"],
+ input[type="password"],
+ select,
+ textarea {
+     width: 100%;
+     background: var(--bg);
+     border: 1px solid var(--border);
+     border-radius: 6px;
+     color: var(--text);
+     font-family: 'Space Mono', monospace;
+     font-size: .9rem;
+     padding: .55rem .75rem;
+     outline: none;
+     transition: border-color .2s;
+     margin-bottom: .9rem;
+ }
+
+ input:focus,
+ select:focus,
+ textarea:focus {
+     border-color: var(--accent);
+ }
+
+ textarea {
+     resize: vertical;
+     min-height: 80px;
+ }
+
+ button {
+     cursor: pointer;
+     font-family: 'Syne', sans-serif;
+     font-weight: 700;
+     font-size: .9rem;
+     border: none;
+     border-radius: 6px;
+     padding: .6rem 1.2rem;
+     transition: opacity .15s, transform .1s;
+ }
+
+ button:active {
+     transform: scale(.97);
+ }
+
+ .btn-primary {
+     background: var(--accent);
+     color: #0d0d0f;
+ }
+
+ .btn-secondary {
+     background: transparent;
+     border: 1px solid var(--border);
+     color: var(--text);
+ }
+
+ .btn-danger {
+     background: var(--red);
+     color: #fff;
+ }
+
+ .btn-success {
+     background: var(--green);
+     color: #0d0d0f;
+ }
+
+ .btn-row {
+     display: flex;
+     gap: .6rem;
+     flex-wrap: wrap;
+     margin-top: .5rem;
+ }
+
+ /* ── OUTPUT BOX ── */
+ .output {
+     background: var(--bg);
+     border: 1px dashed var(--border);
+     border-radius: 6px;
+     padding: .65rem .9rem;
+     font-family: 'Space Mono', monospace;
+     font-size: .85rem;
+     color: var(--muted);
+     min-height: 36px;
+     margin-top: .75rem;
+     word-break: break-all;
+ }
+
+ .output[id] {
+     /* target area hint */
+     border-color: var(--accent2);
+ }
+
+ /* ── LIST SECTION ── */
+ ul#daftar-item {
+     list-style: none;
+     margin: .6rem 0;
+     display: flex;
+     flex-direction: column;
+     gap: .4rem;
+ }
+
+ ul#daftar-item li {
+     background: var(--bg);
+     border: 1px solid var(--border);
+     border-radius: 5px;
+     padding: .45rem .75rem;
+     font-family: 'Space Mono', monospace;
+     font-size: .85rem;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+ }
+
+ ul#daftar-item li span.hapus {
+     color: var(--red);
+     cursor: pointer;
+     font-size: 1rem;
+     line-height: 1;
+ }
+
+ /* ── COUNTER ── */
+ #angka-counter {
+     font-size: 3rem;
+     font-weight: 800;
+     color: var(--accent);
+     text-align: center;
+     margin: .5rem 0;
+     font-family: 'Space Mono', monospace;
+ }
+
+ /* ── COLOR BOX ── */
+ #kotak-warna {
+     width: 100%;
+     height: 80px;
+     border-radius: 8px;
+     background: #333;
+     margin-bottom: .8rem;
+     border: 1px solid var(--border);
+     transition: background .3s;
+ }
+
+ /* ── TABLE ── */
+ .tbl-wrap {
+     overflow-x: auto;
+     margin-top: .6rem;
+ }
+
+ table {
+     width: 100%;
+     border-collapse: collapse;
+     font-family: 'Space Mono', monospace;
+     font-size: .82rem;
+ }
+
+ th {
+     background: var(--border);
+     color: var(--accent2);
+     text-transform: uppercase;
+     letter-spacing: .5px;
+     padding: .5rem .75rem;
+     text-align: left;
+ }
+
+ td {
+     padding: .45rem .75rem;
+     border-bottom: 1px solid var(--border);
+ }
+
+ tbody tr:hover {
+     background: rgba(255, 255, 255, .03);
+ }
+
+ /* ── IMAGE TOGGLE ── */
+ #gambar-toggle {
+     width: 100%;
+     height: 130px;
+     object-fit: cover;
+     border-radius: 8px;
+     border: 1px solid var(--border);
+     margin-bottom: .75rem;
+     background: var(--border);
+     display: block;
+ }
+
+ /* ── PROGRESS ── */
+ progress {
+     width: 100%;
+     height: 14px;
+     border-radius: 99px;
+     border: none;
+     appearance: none;
+     overflow: hidden;
+     margin-bottom: .6rem;
+ }
+
+ progress::-webkit-progress-bar {
+     background: var(--bg);
+ }
+
+ progress::-webkit-progress-value {
+     background: var(--accent);
+     border-radius: 99px;
+ }
+
+ /* ── SECTION TITLE ── */
+ .section-title {
+     max-width: 860px;
+     margin: 0 auto 1rem;
+     font-size: .7rem;
+     font-family: 'Space Mono', monospace;
+     color: var(--muted);
+     text-transform: uppercase;
+     letter-spacing: 2px;
+     padding-left: 2px;
+ }
+
+ /* ── FOOTER ── */
+ footer {
+     max-width: 860px;
+     margin: 3rem auto 0;
+     border-top: 1px solid var(--border);
+     padding-top: 1.2rem;
+     font-family: 'Space Mono', monospace;
+     font-size: .75rem;
+     color: var(--muted);
+ }
